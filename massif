@@ -1,0 +1,51 @@
+[bdrew@localhost Lab 7]$ export PATH=$PATH:/usr/mpich-3.4/bin
+[bdrew@localhost Lab 7]$ export PATH=$PATH:/lib64/openmpi/bin
+[bdrew@localhost Lab 7]$ mpicxx -fpermissive lab7.cpp -o lab7
+[bdrew@localhost Lab 7]$ mpirun -np 4 valgrind --tool=massif ./lab7
+==3704== Massif, a heap profiler
+==3704== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==3704== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3704== Command: ./lab7
+==3704== 
+==3701== Massif, a heap profiler
+==3701== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==3701== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3701== Command: ./lab7
+==3701== 
+==3702== Massif, a heap profiler
+==3702== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==3702== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3702== Command: ./lab7
+==3702== 
+==3703== Massif, a heap profiler
+==3703== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==3703== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3703== Command: ./lab7
+==3703== 
+==3703== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3701== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3704== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3702== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+50 55 62 70 85 
+Hi, I'm 2 My sum is: 176
+35 42 45 47 49 
+32 33 36 37 38 
+25 30 30 35 30 
+Hi, I'm 0 My sum is: 322
+Hi, I'm 1 My sum is: 218
+Hi, I'm 3 My sum is: 150
+sumAll = 866 
+Time Elapsed: 1.113302 seconds.
+
+Time Elapsed: 1.133137 seconds.
+
+==3701== 
+==3704== 
+Time Elapsed: 1.115074 seconds.
+
+==3702== 
+Time Elapsed: 1.163385 seconds.
+
+==3703== 
+[bdrew@localhost Lab 7]$ 
+

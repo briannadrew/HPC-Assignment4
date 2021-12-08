@@ -1,0 +1,71 @@
+[bdrew@localhost Lab 7]$ export PATH=$PATH:/usr/mpich-3.4/bin
+[bdrew@localhost Lab 7]$ export PATH=$PATH:/lib64/openmpi/bin
+[bdrew@localhost Lab 7]$ mpicxx -fpermissive lab7.cpp -o lab7
+[bdrew@localhost Lab 7]$ mpirun -np 4 valgrind --tool=callgrind ./lab7
+==3386== Callgrind, a call-graph generating cache profiler
+==3386== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==3386== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3386== Command: ./lab7
+==3386== 
+==3386== For interactive control, run 'callgrind_control -h'.
+==3387== Callgrind, a call-graph generating cache profiler
+==3387== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==3387== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3387== Command: ./lab7
+==3387== 
+==3388== Callgrind, a call-graph generating cache profiler
+==3388== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==3388== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3388== Command: ./lab7
+==3388== 
+==3388== For interactive control, run 'callgrind_control -h'.
+==3389== Callgrind, a call-graph generating cache profiler
+==3389== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==3389== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3389== Command: ./lab7
+==3389== 
+==3389== For interactive control, run 'callgrind_control -h'.
+==3387== For interactive control, run 'callgrind_control -h'.
+==3386== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3387== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3389== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3388== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+50 55 62 70 85 
+35 42 45 47 49 
+32 33 36 37 38 
+25 30 30 35 30 
+Hi, I'm 0 My sum is: 322
+Hi, I'm 1 My sum is: 218
+Hi, I'm 2 My sum is: 176
+Hi, I'm 3 My sum is: 150
+sumAll = 866 
+Time Elapsed: 1.533301 seconds.
+
+Time Elapsed: 1.554531 seconds.
+
+==3387== 
+Time Elapsed: 1.571181 seconds.
+
+==3389== 
+==3388== 
+Time Elapsed: 1.562172 seconds.
+
+==3386== 
+==3387== Events    : Ir
+==3387== Collected : 87464633
+==3387== 
+==3387== I   refs:      87,464,633
+==3388== Events    : Ir
+==3388== Collected : 89463590
+==3388== 
+==3388== I   refs:      89,463,590
+==3389== Events    : Ir
+==3389== Collected : 88129322
+==3389== 
+==3389== I   refs:      88,129,322
+==3386== Events    : Ir
+==3386== Collected : 87971238
+==3386== 
+==3386== I   refs:      87,971,238
+[bdrew@localhost Lab 7]$ 
+

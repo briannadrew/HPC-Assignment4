@@ -1,0 +1,1149 @@
+[bdrew@localhost Lab 7]$ export PATH=$PATH:/usr/mpich-3.4/bin
+[bdrew@localhost Lab 7]$ export PATH=$PATH:/lib64/openmpi/bin
+[bdrew@localhost Lab 7]$ mpicxx -fpermissive lab7.cpp -o lab7
+[bdrew@localhost Lab 7]$ mpirun -np 4 valgrind --leak-check=yes ./lab7
+==3155== Memcheck, a memory error detector
+==3155== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3155== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3155== Command: ./lab7
+==3155== 
+==3156== Memcheck, a memory error detector
+==3156== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3156== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3156== Command: ./lab7
+==3156== 
+==3157== Memcheck, a memory error detector
+==3157== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3157== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3157== Command: ./lab7
+==3157== 
+==3158== Memcheck, a memory error detector
+==3158== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3158== Using Valgrind-3.16.0 and LibVEX; rerun with -h for copyright info
+==3158== Command: ./lab7
+==3158== 
+==3157== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3158== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3155== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3156== WARNING: valgrind ignores shmget(shmflg) SHM_HUGETLB
+==3158== Thread 3:
+==3158== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==3158==    at 0x5FCE74F: writev (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x98B9344: pmix_ptl_base_send_handler (in /usr/lib64/libpmix.so.2.1.24)
+==3158==    by 0x729EC20: ??? (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3158==    by 0x729F3B6: event_base_loop (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3158==    by 0x987A4F5: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3158==    by 0x5CC3149: start_thread (in /usr/lib64/libpthread-2.28.so)
+==3158==    by 0x5FD7DC2: clone (in /usr/lib64/libc-2.28.so)
+==3158==  Address 0xe1618e7 is 151 bytes inside a block of size 5,120 alloc'd
+==3158==    at 0x4C37419: realloc (vg_replace_malloc.c:834)
+==3158==    by 0x989D79E: pmix_bfrop_buffer_extend (in /usr/lib64/libpmix.so.2.1.24)
+==3158==    by 0x98A148A: pmix_bfrops_base_pack_byte (in /usr/lib64/libpmix.so.2.1.24)
+==3158==    by 0x98A1D8D: pmix_bfrops_base_pack_buf (in /usr/lib64/libpmix.so.2.1.24)
+==3158==    by 0x98A1665: pmix_bfrops_base_pack (in /usr/lib64/libpmix.so.2.1.24)
+==3158==    by 0x98387E0: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3158==    by 0x729E9B4: ??? (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3158==    by 0x729F3B6: event_base_loop (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3158==    by 0x987A4F5: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3158==    by 0x5CC3149: start_thread (in /usr/lib64/libpthread-2.28.so)
+==3158==    by 0x5FD7DC2: clone (in /usr/lib64/libc-2.28.so)
+==3158== 
+==3157== Thread 3:
+==3157== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==3157==    at 0x5FCE74F: writev (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x98B9344: pmix_ptl_base_send_handler (in /usr/lib64/libpmix.so.2.1.24)
+==3157==    by 0x729EC20: ??? (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3157==    by 0x729F3B6: event_base_loop (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3157==    by 0x987A4F5: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3157==    by 0x5CC3149: start_thread (in /usr/lib64/libpthread-2.28.so)
+==3157==    by 0x5FD7DC2: clone (in /usr/lib64/libc-2.28.so)
+==3157==  Address 0xe161ca7 is 151 bytes inside a block of size 5,120 alloc'd
+==3156== Thread 3:
+==3156== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==3157==    at 0x4C37419: realloc (vg_replace_malloc.c:834)
+==3157==    by 0x989D79E: pmix_bfrop_buffer_extend (in /usr/lib64/libpmix.so.2.1.24)
+==3157==    by 0x98A148A: pmix_bfrops_base_pack_byte (in /usr/lib64/libpmix.so.2.1.24)
+==3157==    by 0x98A1D8D: pmix_bfrops_base_pack_buf (in /usr/lib64/libpmix.so.2.1.24)
+==3157==    by 0x98A1665: pmix_bfrops_base_pack (in /usr/lib64/libpmix.so.2.1.24)
+==3157==    by 0x98387E0: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3157==    by 0x729E9B4: ??? (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3157==    by 0x729F3B6: event_base_loop (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3157==    by 0x987A4F5: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3157==    by 0x5CC3149: start_thread (in /usr/lib64/libpthread-2.28.so)
+==3157==    by 0x5FD7DC2: clone (in /usr/lib64/libc-2.28.so)
+==3157== 
+==3156==    at 0x5FCE74F: writev (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x98B9344: pmix_ptl_base_send_handler (in /usr/lib64/libpmix.so.2.1.24)
+==3156==    by 0x729EC20: ??? (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3156==    by 0x729F3B6: event_base_loop (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3156==    by 0x987A4F5: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3156==    by 0x5CC3149: start_thread (in /usr/lib64/libpthread-2.28.so)
+==3156==    by 0x5FD7DC2: clone (in /usr/lib64/libc-2.28.so)
+==3156==  Address 0xe161ca7 is 151 bytes inside a block of size 5,120 alloc'd
+==3156==    at 0x4C37419: realloc (vg_replace_malloc.c:834)
+==3156==    by 0x989D79E: pmix_bfrop_buffer_extend (in /usr/lib64/libpmix.so.2.1.24)
+==3156==    by 0x98A148A: pmix_bfrops_base_pack_byte (in /usr/lib64/libpmix.so.2.1.24)
+==3156==    by 0x98A1D8D: pmix_bfrops_base_pack_buf (in /usr/lib64/libpmix.so.2.1.24)
+==3156==    by 0x98A1665: pmix_bfrops_base_pack (in /usr/lib64/libpmix.so.2.1.24)
+==3156==    by 0x98387E0: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3156==    by 0x729E9B4: ??? (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3156==    by 0x729F3B6: event_base_loop (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3156==    by 0x987A4F5: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3156==    by 0x5CC3149: start_thread (in /usr/lib64/libpthread-2.28.so)
+==3156==    by 0x5FD7DC2: clone (in /usr/lib64/libc-2.28.so)
+==3156== 
+==3155== Thread 3:
+==3155== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==3155==    at 0x5FCE74F: writev (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x98B9344: pmix_ptl_base_send_handler (in /usr/lib64/libpmix.so.2.1.24)
+==3155==    by 0x729EC20: ??? (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3155==    by 0x729F3B6: event_base_loop (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3155==    by 0x987A4F5: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3155==    by 0x5CC3149: start_thread (in /usr/lib64/libpthread-2.28.so)
+==3155==    by 0x5FD7DC2: clone (in /usr/lib64/libc-2.28.so)
+==3155==  Address 0xe1628d7 is 151 bytes inside a block of size 5,120 alloc'd
+==3155==    at 0x4C37419: realloc (vg_replace_malloc.c:834)
+==3155==    by 0x989D79E: pmix_bfrop_buffer_extend (in /usr/lib64/libpmix.so.2.1.24)
+==3155==    by 0x98A148A: pmix_bfrops_base_pack_byte (in /usr/lib64/libpmix.so.2.1.24)
+==3155==    by 0x98A1D8D: pmix_bfrops_base_pack_buf (in /usr/lib64/libpmix.so.2.1.24)
+==3155==    by 0x98A1665: pmix_bfrops_base_pack (in /usr/lib64/libpmix.so.2.1.24)
+==3155==    by 0x98387E0: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3155==    by 0x729E9B4: ??? (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3155==    by 0x729F3B6: event_base_loop (in /usr/lib64/libevent_core-2.1.so.6.0.2)
+==3155==    by 0x987A4F5: ??? (in /usr/lib64/libpmix.so.2.1.24)
+==3155==    by 0x5CC3149: start_thread (in /usr/lib64/libpthread-2.28.so)
+==3155==    by 0x5FD7DC2: clone (in /usr/lib64/libc-2.28.so)
+==3155== 
+==3156== Warning: invalid file descriptor -1 in syscall close()
+==3156== Warning: invalid file descriptor -1 in syscall close()
+50 55 62 70 85 
+35 42 45 47 49 
+32 33 36 37 38 
+25 30 30 35 30 
+Hi, I'm 0 My sum is: 322
+Hi, I'm 2 My sum is: 176
+Hi, I'm 1 My sum is: 218
+Hi, I'm 3 My sum is: 150
+==3157== Thread 1:
+==3157== Mismatched free() / delete / delete []
+==3157==    at 0x4C367D6: operator delete(void*, unsigned long) (vg_replace_malloc.c:593)
+==3157==    by 0x408978: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157==  Address 0xe1cea90 is 0 bytes inside a block of size 20 alloc'd
+==3157==    at 0x4C35C93: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==3157==    by 0x408786: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3156== Thread 1:
+==3156== Mismatched free() / delete / delete []
+==3156==    at 0x4C367D6: operator delete(void*, unsigned long) (vg_replace_malloc.c:593)
+==3156==    by 0x408978: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156==  Address 0xe35d700 is 0 bytes inside a block of size 20 alloc'd
+==3156==    at 0x4C35C93: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==3156==    by 0x408786: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3155== Thread 1:
+==3155== Mismatched free() / delete / delete []
+==3158== Thread 1:
+==3158== Mismatched free() / delete / delete []
+sumAll = 866 
+==3155==    at 0x4C367D6: operator delete(void*, unsigned long) (vg_replace_malloc.c:593)
+==3155==    by 0x408978: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155==  Address 0xe1c1600 is 0 bytes inside a block of size 20 alloc'd
+==3155==    at 0x4C35C93: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==3155==    by 0x408786: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3158==    at 0x4C367D6: operator delete(void*, unsigned long) (vg_replace_malloc.c:593)
+==3158==    by 0x408978: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158==  Address 0xe1ce040 is 0 bytes inside a block of size 20 alloc'd
+==3158==    at 0x4C35C93: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==3158==    by 0x408786: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+Time Elapsed: 2.289023 seconds.
+
+Time Elapsed: 2.283642 seconds.
+
+==3157== 
+==3157== HEAP SUMMARY:
+==3157==     in use at exit: 9,882 bytes in 55 blocks
+==3157==   total heap usage: 26,380 allocs, 26,325 frees, 7,093,537 bytes allocated
+==3157== 
+==3157== 1 bytes in 1 blocks are definitely lost in loss record 1 of 31
+==3157==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3157==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3157==    by 0xE65CC96: ???
+==3157==    by 0xE457723: ???
+==3155== 
+==3155== HEAP SUMMARY:
+==3155==     in use at exit: 9,882 bytes in 55 blocks
+==3155==   total heap usage: 26,398 allocs, 26,343 frees, 7,094,892 bytes allocated
+==3155== 
+==3155== 1 bytes in 1 blocks are definitely lost in loss record 1 of 31
+==3155==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3155==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3155==    by 0xE65CC96: ???
+==3155==    by 0xE457723: ???
+==3155==    by 0x65B1C4B: mca_base_framework_components_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x65B1FE1: mca_base_framework_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x65B2044: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x65B1C4B: mca_base_framework_components_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x65B1FE1: mca_base_framework_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x65B2044: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x514006A: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== 8 bytes in 1 blocks are definitely lost in loss record 2 of 31
+==3157==    by 0x514006A: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== 8 bytes in 1 blocks are definitely lost in loss record 2 of 31
+==3155==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3155==    by 0xE271F7F: ???
+==3155==    by 0xF3E6FBB: ???
+==3155==    by 0xF3EE154: ???
+==3155==    by 0xF3F13C5: ???
+==3155==    by 0xF388E10: ???
+==3155==    by 0xF3896F4: ???
+==3155==    by 0xF15A189: ???
+==3155==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0xD7F5365: ???
+==3155==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155== 
+==3155== 8 bytes in 1 blocks are definitely lost in loss record 3 of 31
+==3157==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3157==    by 0xE271F7F: ???
+==3157==    by 0xF3E6FBB: ???
+==3157==    by 0xF3EE154: ???
+==3157==    by 0xF3F13C5: ???
+==3157==    by 0xF388E10: ???
+==3157==    by 0xF3896F4: ???
+==3157==    by 0xF15A189: ???
+==3157==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0xD7F5365: ???
+==3157==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157== 
+==3157== 8 bytes in 1 blocks are definitely lost in loss record 3 of 31
+==3155==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3155==    by 0x10D5AF7F: ???
+==3155==    by 0x10636FBB: ???
+==3155==    by 0x1063E154: ???
+==3155==    by 0x106413C5: ???
+==3155==    by 0x105D8E10: ???
+==3155==    by 0x105D96F4: ???
+==3155==    by 0x103BB11D: ???
+==3155==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0xE251A7D: ???
+==3155==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155== 
+==3155== 22 bytes in 1 blocks are definitely lost in loss record 6 of 31
+==3155==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3155==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x9879640: ???
+==3155==    by 0x983C7FB: ???
+==3155==    by 0x95D167F: ???
+==3155==    by 0x8BBE26B: ???
+==3155==    by 0x632CD99: orte_init (in /usr/lib64/openmpi/lib/libopen-rte.so.40.20.5)
+==3155==    by 0x513FC61: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== 23 bytes in 1 blocks are definitely lost in loss record 7 of 31
+==3155==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3155==    by 0xFF8B94C: ???
+==3155==    by 0xF7D52DD: ???
+==3155==    by 0xF56EF6E: ???
+==3155==    by 0xF56FAE2: ???
+==3155==    by 0xF152704: ???
+==3157==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3157==    by 0x10D5AF7F: ???
+==3157==    by 0x10636FBB: ???
+==3157==    by 0x1063E154: ???
+==3157==    by 0x106413C5: ???
+==3157==    by 0x105D8E10: ???
+==3157==    by 0x105D96F4: ???
+==3157==    by 0x103BB11D: ???
+==3157==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0xE251A7D: ???
+==3157==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157== 
+==3157== 22 bytes in 1 blocks are definitely lost in loss record 6 of 31
+==3157==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3157==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x9879640: ???
+==3157==    by 0x983C7FB: ???
+==3157==    by 0x95D167F: ???
+==3157==    by 0x8BBE26B: ???
+==3157==    by 0x632CD99: orte_init (in /usr/lib64/openmpi/lib/libopen-rte.so.40.20.5)
+==3157==    by 0x513FC61: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== 23 bytes in 1 blocks are definitely lost in loss record 7 of 31
+==3157==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3157==    by 0xFF8B94C: ???
+==3157==    by 0xF7D52DD: ???
+==3157==    by 0xF56EF6E: ???
+==3157==    by 0xF56FAE2: ???
+==3157==    by 0xF152704: ???
+==3155==    by 0x65A7ADE: mca_base_framework_components_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x512E37E: ??? (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x65B20B8: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x514006A: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== 24 bytes in 1 blocks are definitely lost in loss record 8 of 31
+==3157==    by 0x65A7ADE: mca_base_framework_components_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x512E37E: ??? (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x65B20B8: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x514006A: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== 24 bytes in 1 blocks are definitely lost in loss record 8 of 31
+Time Elapsed: 2.296370 seconds.
+
+==3157==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3157==    by 0xE274FB1: ???
+==3157==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3157==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x6809968: _dlerror_run (in /usr/lib64/libdl-2.28.so)
+==3157== 
+==3157== 24 bytes in 1 blocks are definitely lost in loss record 9 of 31
+==3157==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3157==    by 0x10D5DFB1: ???
+==3157==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3157==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x6809968: _dlerror_run (in /usr/lib64/libdl-2.28.so)
+==3157== 
+==3157== 30 bytes in 1 blocks are definitely lost in loss record 10 of 31
+==3157==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3157==    by 0x5FE7C77: __vasprintf_chk (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x5FE7B12: __asprintf_chk (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x95DFC77: ???
+==3157==    by 0x65B1C4B: mca_base_framework_components_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x65B1FE1: mca_base_framework_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x65B2044: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x8BBE1D6: ???
+==3157==    by 0x632CD99: orte_init (in /usr/lib64/openmpi/lib/libopen-rte.so.40.20.5)
+==3157==    by 0x513FC61: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== 30 bytes in 1 blocks are definitely lost in loss record 11 of 31
+==3157==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3157==    by 0xF925765: ???
+==3157==    by 0xF927B55: ???
+==3157==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3157==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3157== 
+==3157== 30 bytes in 1 blocks are definitely lost in loss record 12 of 31
+==3157==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3157==    by 0x11458765: ???
+==3157==    by 0x1145AB55: ???
+==3157==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3157== ==3155==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3155==    by 0xE274FB1: ???
+==3155==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3155==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x6809968: _dlerror_run (in /usr/lib64/libdl-2.28.so)
+==3155== 
+==3155== 24 bytes in 1 blocks are definitely lost in loss record 9 of 31
+==3155==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3155==    by 0x10D5DFB1: ???
+==3155==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3155==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x6809968: _dlerror_run (in /usr/lib64/libdl-2.28.so)
+==3155== 
+==3155== 30 bytes in 1 blocks are definitely lost in loss record 10 of 31
+==3155==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3155==    by 0x5FE7C77: __vasprintf_chk (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x5FE7B12: __asprintf_chk (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x95DFC77: ???
+==3155==    by 0x65B1C4B: mca_base_framework_components_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x65B1FE1: mca_base_framework_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x65B2044: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x8BBE1D6: ???
+==3155==    by 0x632CD99: orte_init (in /usr/lib64/openmpi/lib/libopen-rte.so.40.20.5)
+==3155==    by 0x513FC61: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== 30 bytes in 1 blocks are definitely lost in loss record 11 of 31
+==3155==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3155==    by 0xF925765: ???
+==3155==    by 0xF927B55: ???
+==3155==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3155==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3155== 
+==3155== 30 bytes in 1 blocks are definitely lost in loss record 12 of 31
+==3155==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3155==    by 0x11458765: ???
+==3155==    by 0x1145AB55: ???
+==3155==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3155==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3155== 
+==3155== 32 bytes in 1 blocks are definitely lost in loss record 14 of 31
+==3155==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3155==    by 0xF3960B4: ???
+==3155==    by 0xF388B57: ???
+==3155==    by 0xF3896F4: ???
+==3155==    by 0xF15A189: ???
+==3155==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0xD7F5365: ???
+==3155==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== 32 bytes in 1 blocks are definitely lost in loss record 15 of 31
+==3155==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3155==    by 0x105E60B4: ???
+==3155==    by 0x105D8B57: ???
+==3155==    by 0x105D96F4: ???
+==3155==    by 0x103BB11D: ???
+==3155==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0xE251A7D: ???
+==3155==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== 44 bytes in 6 blocks are definitely lost in loss record 20 of 31
+==3155==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3155==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3155==    by 0xFF7974C: ???
+==3155==    by 0xFF7B074: ???
+==3155==    by 0xFF7B1AA: ???
+==3155==    by 0xFF7B80C: ???
+==3155==    by 0xFF795C9: ???
+==3155==    by 0xFF73D9A: ???
+==3155==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3155== 
+==3155== 79 (64 direct, 15 indirect) bytes in 1 blocks are definitely lost in loss record 24 of 31
+==3155==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3155==    by 0xD5EF4B1: ???
+==3155==    by 0x65A7ADE: mca_base_framework_components_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x65D37D5: ??? (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x65B20B8: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0x514000C: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== 92 (32 direct, 60 indirect) bytes in 1 blocks are definitely lost in loss record 25 of 31
+==3155==    at 0x4C35C93: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==3155==    by 0x40872F: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== 512 bytes in 1 blocks are definitely lost in loss record 28 of 31
+==3155==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3155==    by 0xFF7AA73: ???
+==3155==    by 0xFF7B074: ???
+==3155==    by 0xFF7B1AA: ???
+==3155==    by 0xFF7B80C: ???
+==3155==    by 0xFF795C9: ???
+==3155==    by 0xFF73D9A: ???
+==3155==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3155==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3155== 
+==3155== 1,736 bytes in 1 blocks are definitely lost in loss record 29 of 31
+==3155==    at 0x4C3721A: calloc (vg_replace_mall   by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3157==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3157== 
+==3157== 32 bytes in 1 blocks are definitely lost in loss record 14 of 31
+==3157==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3157==    by 0xF3960B4: ???
+==3157==    by 0xF388B57: ???
+==3157==    by 0xF3896F4: ???
+==3157==    by 0xF15A189: ???
+==3157==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0xD7F5365: ???
+==3157==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== 32 bytes in 1 blocks are definitely lost in loss record 15 of 31
+==3157==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3157==    by 0x105E60B4: ???
+==3157==    by 0x105D8B57: ???
+==3157==    by 0x105D96F4: ???
+==3157==    by 0x103BB11D: ???
+==3157==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0xE251A7D: ???
+==3157==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== 44 bytes in 6 blocks are definitely lost in loss record 20 of 31
+==3157==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3157==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3157==    by 0xFF7974C: ???
+==3157==    by 0xFF7B074: ???
+==3157==    by 0xFF7B1AA: ???
+==3157==    by 0xFF7B80C: ???
+==3157==    by 0xFF795C9: ???
+==3157==    by 0xFF73D9A: ???
+==3157==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3157== 
+==3157== 79 (64 direct, 15 indirect) bytes in 1 blocks are definitely lost in loss record 24 of 31
+==3157==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3157==    by 0xD5EF4B1: ???
+==3157==    by 0x65A7ADE: mca_base_framework_components_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x65D37D5: ??? (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x65B20B8: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0x514000C: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== 92 (32 direct, 60 indirect) bytes in 1 blocks are definitely lost in loss record 25 of 31
+==3157==    at 0x4C35C93: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==3157==    by 0x40872F: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== 512 bytes in 1 blocks are definitely lost in loss record 28 of 31
+==3157==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3157==    by 0xFF7AA73: ???
+==3157==    by 0xFF7B074: ???
+==3157==    by 0xFF7B1AA: ???
+==3157==    by 0xFF7B80C: ???
+==3157==    by 0xFF795C9: ???
+==3157==    by 0xFF73D9A: ???
+==3157==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3157==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3157== 
+==3157== 1,736 bytes in 1 blocks are definitely lost in loss record 29 of 31
+==3157==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3157==    by 0xF419ABE: ???
+==3157==    by 0xF389372: ???
+==3157==    by 0xF15A189: ???
+==3157==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3157==    by 0xD7F5365: ???
+==3157==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== 1,736 bytes in 1 blocks are definitely lost in loss record 30 of 31
+==3157==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3157==    by 0x10669ABE: ???
+==3157==    by 0x105D9372: ???
+==3157==    by 0x103BB11D: ???
+==3157==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0xE251A7D: ???
+==3157==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3157==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3157== 
+==3157== LEAK SUMMARY:
+==3157==    definitely lost: 4,388 bytes in 23 blocks
+==3157==    indirectly lost: 75 bytes in 4 blocks
+==3157==      possibly lost: 0 bytes in 0 blocks
+==3157==    still reachable: 5,419 bytes in 28 blocks
+==3157==         suppressed: 0 bytes in 0 blocks
+==3157== Reachable blocks (those to which a pointer was found) are not shown.
+==3157== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==3157== 
+==3157== Use --track-origins=yes to see where uninitialised values come from
+==3157== For lists of detected and suppressed errors, rerun with: -s
+==3157== ERROR SUMMARY: 20 errors from 20 contexts (suppressed: 0 from 0)
+oc.c:760)
+==3155==    by 0xF419ABE: ???
+==3155==    by 0xF389372: ???
+==3155==    by 0xF15A189: ???
+==3155==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3155==    by 0xD7F5365: ???
+==3155==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== 1,736 bytes in 1 blocks are definitely lost in loss record 30 of 31
+==3155==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3155==    by 0x10669ABE: ???
+==3155==    by 0x105D9372: ???
+==3155==    by 0x103BB11D: ???
+==3155==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0xE251A7D: ???
+==3155==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3155==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3155== 
+==3155== LEAK SUMMARY:
+==3155==    definitely lost: 4,388 bytes in 23 blocks
+==3155==    indirectly lost: 75 bytes in 4 blocks
+==3155==      possibly lost: 0 bytes in 0 blocks
+==3155==    still reachable: 5,419 bytes in 28 blocks
+==3155==         suppressed: 0 bytes in 0 blocks
+==3155== Reachable blocks (those to which a pointer was found) are not shown.
+==3155== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==3155== 
+==3155== Use --track-origins=yes to see where uninitialised values come from
+==3155== For lists of detected and suppressed errors, rerun with: -s
+==3155== ERROR SUMMARY: 20 errors from 20 contexts (suppressed: 0 from 0)
+Time Elapsed: 2.288840 seconds.
+
+==3158== 
+==3158== HEAP SUMMARY:
+==3158==     in use at exit: 9,882 bytes in 55 blocks
+==3158==   total heap usage: 26,369 allocs, 26,314 frees, 7,093,302 bytes allocated
+==3158== 
+==3158== 1 bytes in 1 blocks are definitely lost in loss record 1 of 31
+==3158==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3158==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3158==    by 0xE65CC96: ???
+==3158==    by 0xE457723: ???
+==3158==    by 0x65B1C4B: mca_base_framework_components_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x65B1FE1: mca_base_framework_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x65B2044: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x514006A: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== 8 bytes in 1 blocks are definitely lost in loss record 2 of 31
+==3158==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3158==    by 0xE271F7F: ???
+==3158==    by 0xF3E6FBB: ???
+==3158==    by 0xF3EE154: ???
+==3158==    by 0xF3F13C5: ???
+==3158==    by 0xF388E10: ???
+==3158==    by 0xF3896F4: ???
+==3158==    by 0xF15A189: ???
+==3158==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0xD7F5365: ???
+==3158==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158== 
+==3158== 8 bytes in 1 blocks are definitely lost in loss record 3 of 31
+==3158==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3158==    by 0x10D5AF7F: ???
+==3158==    by 0x10636FBB: ???
+==3158==    by 0x1063E154: ???
+==3158==    by 0x106413C5: ???
+==3158==    by 0x105D8E10: ???
+==3158==    by 0x105D96F4: ???
+==3158==    by 0x103BB11D: ???
+==3158==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0xE251A7D: ???
+==3158==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158== 
+==3158== 22 bytes in 1 blocks are definitely lost in loss record 6 of 31
+==3158==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3158==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x9879640: ???
+==3158==    by 0x983C7FB: ???
+==3158==    by 0x95D167F: ???
+==3158==    by 0x8BBE26B: ???
+==3158==    by 0x632CD99: orte_init (in /usr/lib64/openmpi/lib/libopen-rte.so.40.20.5)
+==3158==    by 0x513FC61: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== 23 bytes in 1 blocks are definitely lost in loss record 7 of 31
+==3158==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3158==    by 0xFF8B94C: ???
+==3158==    by 0xF7D52DD: ???
+==3158==    by 0xF56EF6E: ???
+==3158==    by 0xF56FAE2: ???
+==3158==    by 0xF152704: ???
+==3158==    by 0x65A7ADE: mca_base_framework_components_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x512E37E: ??? (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x65B20B8: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x514006A: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== 24 bytes in 1 blocks are definitely lost in loss record 8 of 31
+==3158==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3158==    by 0xE274FB1: ???
+==3158==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3158==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x6809968: _dlerror_run (in /usr/lib64/libdl-2.28.so)
+==3158== 
+==3158== 24 bytes in 1 blocks are definitely lost in loss record 9 of 31
+==3158==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3158==    by 0x10D5DFB1: ???
+==3158==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3158==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x6809968: _dlerror_run (in /usr/lib64/libdl-2.28.so)
+==3158== 
+==3158== 30 bytes in 1 blocks are definitely lost in loss record 10 of 31
+==3158==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3158==    by 0x5FE7C77: __vasprintf_chk (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x5FE7B12: __asprintf_chk (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x95DFC77: ???
+==3158==    by 0x65B1C4B: mca_base_framework_components_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x65B1FE1: mca_base_framework_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x65B2044: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x8BBE1D6: ???
+==3158==    by 0x632CD99: orte_init (in /usr/lib64/openmpi/lib/libopen-rte.so.40.20.5)
+==3158==    by 0x513FC61: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== 30 bytes in 1 blocks are definitely lost in loss record 11 of 31
+==3158==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3158==    by 0xF925765: ???
+==3158==    by 0xF927B55: ???
+==3158==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3158==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3158== 
+==3158== 30 bytes in 1 blocks are definitely lost in loss record 12 of 31
+==3158==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3158==    by 0x11458765: ???
+==3158==    by 0x1145AB55: ???
+==3158==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3158==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3158== 
+==3158== 32 bytes in 1 blocks are definitely lost in loss record 14 of 31
+==3158==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3158==    by 0xF3960B4: ???
+==3158==    by 0xF388B57: ???
+==3158==    by 0xF3896F4: ???
+==3158==    by 0xF15A189: ???
+==3158==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0xD7F5365: ???
+==3158==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== 32 bytes in 1 blocks are definitely lost in loss record 15 of 31
+==3158==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3158==    by 0x105E60B4: ???
+==3158==    by 0x105D8B57: ???
+==3158==    by 0x105D96F4: ???
+==3158==    by 0x103BB11D: ???
+==3158==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0xE251A7D: ???
+==3158==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== 44 bytes in 6 blocks are definitely lost in loss record 20 of 31
+==3158==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3158==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3158==    by 0xFF7974C: ???
+==3158==    by 0xFF7B074: ???
+==3158==    by 0xFF7B1AA: ???
+==3158==    by 0xFF7B80C: ???
+==3158==    by 0xFF795C9: ???
+==3158==    by 0xFF73D9A: ???
+==3158==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3158== 
+==3158== 79 (64 direct, 15 indirect) bytes in 1 blocks are definitely lost in loss record 24 of 31
+==3158==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3158==    by 0xD5EF4B1: ???
+==3158==    by 0x65A7ADE: mca_base_framework_components_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x65D37D5: ??? (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x65B20B8: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0x514000C: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== 92 (32 direct, 60 indirect) bytes in 1 blocks are definitely lost in loss record 25 of 31
+==3158==    at 0x4C35C93: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==3158==    by 0x40872F: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== 512 bytes in 1 blocks are definitely lost in loss record 28 of 31
+==3158==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3158==    by 0xFF7AA73: ???
+==3158==    by 0xFF7B074: ???
+==3158==    by 0xFF7B1AA: ???
+==3158==    by 0xFF7B80C: ???
+==3158==    by 0xFF795C9: ???
+==3158==    by 0xFF73D9A: ???
+==3158==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3158==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3158== 
+==3158== 1,736 bytes in 1 blocks are definitely lost in loss record 29 of 31
+==3158==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3158==    by 0xF419ABE: ???
+==3158==    by 0xF389372: ???
+==3158==    by 0xF15A189: ???
+==3158==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3158==    by 0xD7F5365: ???
+==3158==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== 1,736 bytes in 1 blocks are definitely lost in loss record 30 of 31
+==3158==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3158==    by 0x10669ABE: ???
+==3158==    by 0x105D9372: ???
+==3158==    by 0x103BB11D: ???
+==3158==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0xE251A7D: ???
+==3158==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3158==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3158== 
+==3158== LEAK SUMMARY:
+==3158==    definitely lost: 4,388 bytes in 23 blocks
+==3158==    indirectly lost: 75 bytes in 4 blocks
+==3158==      possibly lost: 0 bytes in 0 blocks
+==3158==    still reachable: 5,419 bytes in 28 blocks
+==3158==         suppressed: 0 bytes in 0 blocks
+==3158== Reachable blocks (those to which a pointer was found) are not shown.
+==3158== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==3158== 
+==3158== Use --track-origins=yes to see where uninitialised values come from
+==3158== For lists of detected and suppressed errors, rerun with: -s
+==3158== ERROR SUMMARY: 20 errors from 20 contexts (suppressed: 0 from 0)
+==3156== 
+==3156== HEAP SUMMARY:
+==3156==     in use at exit: 9,882 bytes in 55 blocks
+==3156==   total heap usage: 26,381 allocs, 26,326 frees, 7,093,545 bytes allocated
+==3156== 
+==3156== 1 bytes in 1 blocks are definitely lost in loss record 1 of 31
+==3156==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3156==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3156==    by 0xE65CC96: ???
+==3156==    by 0xE457723: ???
+==3156==    by 0x65B1C4B: mca_base_framework_components_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x65B1FE1: mca_base_framework_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x65B2044: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x514006A: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== 8 bytes in 1 blocks are definitely lost in loss record 2 of 31
+==3156==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3156==    by 0xE271F7F: ???
+==3156==    by 0xF3E6FBB: ???
+==3156==    by 0xF3EE154: ???
+==3156==    by 0xF3F13C5: ???
+==3156==    by 0xF388E10: ???
+==3156==    by 0xF3896F4: ???
+==3156==    by 0xF15A189: ???
+==3156==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0xD7F5365: ???
+==3156==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156== 
+==3156== 8 bytes in 1 blocks are definitely lost in loss record 3 of 31
+==3156==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3156==    by 0x10D5AF7F: ???
+==3156==    by 0x10636FBB: ???
+==3156==    by 0x1063E154: ???
+==3156==    by 0x106413C5: ???
+==3156==    by 0x105D8E10: ???
+==3156==    by 0x105D96F4: ???
+==3156==    by 0x103BB11D: ???
+==3156==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0xE251A7D: ???
+==3156==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156== 
+==3156== 22 bytes in 1 blocks are definitely lost in loss record 6 of 31
+==3156==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3156==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x9879640: ???
+==3156==    by 0x983C7FB: ???
+==3156==    by 0x95D167F: ???
+==3156==    by 0x8BBE26B: ???
+==3156==    by 0x632CD99: orte_init (in /usr/lib64/openmpi/lib/libopen-rte.so.40.20.5)
+==3156==    by 0x513FC61: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== 23 bytes in 1 blocks are definitely lost in loss record 7 of 31
+==3156==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3156==    by 0xFF8B94C: ???
+==3156==    by 0xF7D52DD: ???
+==3156==    by 0xF56EF6E: ???
+==3156==    by 0xF56FAE2: ???
+==3156==    by 0xF152704: ???
+==3156==    by 0x65A7ADE: mca_base_framework_components_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x512E37E: ??? (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x65B20B8: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x514006A: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== 24 bytes in 1 blocks are definitely lost in loss record 8 of 31
+==3156==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3156==    by 0xE274FB1: ???
+==3156==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3156==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x6809968: _dlerror_run (in /usr/lib64/libdl-2.28.so)
+==3156== 
+==3156== 24 bytes in 1 blocks are definitely lost in loss record 9 of 31
+==3156==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3156==    by 0x10D5DFB1: ???
+==3156==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3156==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x6809968: _dlerror_run (in /usr/lib64/libdl-2.28.so)
+==3156== 
+==3156== 30 bytes in 1 blocks are definitely lost in loss record 10 of 31
+==3156==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3156==    by 0x5FE7C77: __vasprintf_chk (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x5FE7B12: __asprintf_chk (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x95DFC77: ???
+==3156==    by 0x65B1C4B: mca_base_framework_components_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x65B1FE1: mca_base_framework_register (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x65B2044: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x8BBE1D6: ???
+==3156==    by 0x632CD99: orte_init (in /usr/lib64/openmpi/lib/libopen-rte.so.40.20.5)
+==3156==    by 0x513FC61: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== 30 bytes in 1 blocks are definitely lost in loss record 11 of 31
+==3156==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3156==    by 0xF925765: ???
+==3156==    by 0xF927B55: ???
+==3156==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3156==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3156== 
+==3156== 30 bytes in 1 blocks are definitely lost in loss record 12 of 31
+==3156==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3156==    by 0x11458765: ???
+==3156==    by 0x1145AB55: ???
+==3156==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40136B0: _dl_open (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x68091E9: dlopen_doit (in /usr/lib64/libdl-2.28.so)
+==3156==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x60132E2: _dl_catch_error (in /usr/lib64/libc-2.28.so)
+==3156== 
+==3156== 32 bytes in 1 blocks are definitely lost in loss record 14 of 31
+==3156==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3156==    by 0xF3960B4: ???
+==3156==    by 0xF388B57: ???
+==3156==    by 0xF3896F4: ???
+==3156==    by 0xF15A189: ???
+==3156==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0xD7F5365: ???
+==3156==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== 32 bytes in 1 blocks are definitely lost in loss record 15 of 31
+==3156==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3156==    by 0x105E60B4: ???
+==3156==    by 0x105D8B57: ???
+==3156==    by 0x105D96F4: ???
+==3156==    by 0x103BB11D: ???
+==3156==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0xE251A7D: ???
+==3156==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== 44 bytes in 6 blocks are definitely lost in loss record 20 of 31
+==3156==    at 0x4C34F0B: malloc (vg_replace_malloc.c:307)
+==3156==    by 0x5F6480D: strdup (in /usr/lib64/libc-2.28.so)
+==3156==    by 0xFF7974C: ???
+==3156==    by 0xFF7B074: ???
+==3156==    by 0xFF7B1AA: ???
+==3156==    by 0xFF7B80C: ???
+==3156==    by 0xFF795C9: ???
+==3156==    by 0xFF73D9A: ???
+==3156==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3156== 
+==3156== 79 (64 direct, 15 indirect) bytes in 1 blocks are definitely lost in loss record 24 of 31
+==3156==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3156==    by 0xD5EF4B1: ???
+==3156==    by 0x65A7ADE: mca_base_framework_components_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x65D37D5: ??? (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x65B20B8: mca_base_framework_open (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0x514000C: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== 92 (32 direct, 60 indirect) bytes in 1 blocks are definitely lost in loss record 25 of 31
+==3156==    at 0x4C35C93: operator new[](unsigned long) (vg_replace_malloc.c:431)
+==3156==    by 0x40872F: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== 512 bytes in 1 blocks are definitely lost in loss record 28 of 31
+==3156==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3156==    by 0xFF7AA73: ???
+==3156==    by 0xFF7B074: ???
+==3156==    by 0xFF7B1AA: ???
+==3156==    by 0xFF7B80C: ???
+==3156==    by 0xFF795C9: ???
+==3156==    by 0xFF73D9A: ???
+==3156==    by 0x400F8B9: call_init.part.0 (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x400F9B9: _dl_init (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x601327B: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156==    by 0x40142E8: dl_open_worker (in /usr/lib64/ld-2.28.so)
+==3156==    by 0x6013223: _dl_catch_exception (in /usr/lib64/libc-2.28.so)
+==3156== 
+==3156== 1,736 bytes in 1 blocks are definitely lost in loss record 29 of 31
+==3156==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3156==    by 0xF419ABE: ???
+==3156==    by 0xF389372: ???
+==3156==    by 0xF15A189: ???
+==3156==    by 0x65C78A2: mca_btl_base_select (in /usr/lib64/openmpi/lib/libopen-pal.so.40.20.5)
+==3156==    by 0xD7F5365: ???
+==3156==    by 0x51023B3: mca_bml_base_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x514004B: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== 1,736 bytes in 1 blocks are definitely lost in loss record 30 of 31
+==3156==    at 0x4C3721A: calloc (vg_replace_malloc.c:760)
+==3156==    by 0x10669ABE: ???
+==3156==    by 0x105D9372: ???
+==3156==    by 0x103BB11D: ???
+==3156==    by 0x5125FC3: ompi_mtl_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0xE251A7D: ???
+==3156==    by 0x512EA33: mca_pml_base_select (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x51400BE: ompi_mpi_init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x50DFAF8: PMPI_Init (in /usr/lib64/openmpi/lib/libmpi.so.40.20.5)
+==3156==    by 0x4085DA: main (in /home/bdrew/COIS4350H/Lab 7/lab7)
+==3156== 
+==3156== LEAK SUMMARY:
+==3156==    definitely lost: 4,388 bytes in 23 blocks
+==3156==    indirectly lost: 75 bytes in 4 blocks
+==3156==      possibly lost: 0 bytes in 0 blocks
+==3156==    still reachable: 5,419 bytes in 28 blocks
+==3156==         suppressed: 0 bytes in 0 blocks
+==3156== Reachable blocks (those to which a pointer was found) are not shown.
+==3156== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==3156== 
+==3156== Use --track-origins=yes to see where uninitialised values come from
+==3156== For lists of detected and suppressed errors, rerun with: -s
+==3156== ERROR SUMMARY: 20 errors from 20 contexts (suppressed: 0 from 0)
+[bdrew@localhost Lab 7]$ 
+
